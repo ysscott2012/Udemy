@@ -1,4 +1,5 @@
-## Udemy - Understanding the weird parts
+# Udemy - Understanding the weird parts
+
 
 ## Section 2 - Execution Contexts and Lexical Environments
 
