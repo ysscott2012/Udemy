@@ -3,19 +3,18 @@
 
 ## Section 2 - Execution Contexts and Lexical Environments
 
-#### Syntax Parsers
-A program that reads your code and determines what it does and its grammar is valid. 
-#### Lexical Environments
-Where something sits physically in the code you write.
-#### Exception Contexts
-A wrapper to help manage the code that is running.
-#### Name/Value pairs
-A name which maps to a unique value.
+**Syntax Parsers**: A program that reads your code and determines what it does and its grammar is valid. 
+
+**Lexical Environments**: Where something sits physically in the code you write.
+
+**Exception Contexts**: A wrapper to help manage the code that is running.
+
+**Name/Value pairs**: A name which maps to a unique value.
 ``` JavaScript
 Address = '100 Main St.'
 ```
-#### Objects 
-A collection of name/value pairs.
+
+**Objects**: A collection of name/value pairs.
 ``` JavaScript
 Address: {
     Street: 'Main',
@@ -27,7 +26,8 @@ Address: {
 }
 ```
 
-#### The Global Environment & The Global Object 
+**The Global Environment & The Global Object**: 
+
 Window object (this) is the global object inside browsers. When the global object is created, and its execution context is also created - global execution context.
 
 The 'Globsl' means - not inside of any function.
@@ -39,7 +39,7 @@ function b () {
 }
 ```
 
-#### Creating and 'Hoisting'
+**Creating and 'Hoisting'**:
 Sets up memory space for variables and functions
 
 In a following code, JavaScript engine reads variables and functions in global context, and set up the memory spaces for them before declaring their value. The engine sets up memory spaces by reading `var a;` and `function b()` lines. After setting up the memory spaces, the engine starts to read code line by line. First, the engine reads `b()` and goes into the `function b()` to get `console.log('Called b')`. Second, the engine reads `console.log(a)`. Although the memory `a` is already set up, it hasn't declare its value yet, so it returns `undefined`. Finally, engine reads `var a = 'Hello World'`, it decalres the value for the memory space `a`. 
@@ -61,21 +61,17 @@ function b () {
 }
 ```
 
-#### JavaScript and 'undefined'
+**JavaScript and 'undefined'**:
 Undefined is a special value / special keyword in JavaScript. And it's the value that variables receive during the creation phase. The first phase of creating an execution context sets up the memory of the variable and in that memory space puts the value called 'undefined'.
 
-#### Single Thread: 
-One command at a time.
-#### Synchronous Execution
-One at a time.
-#### Function Invocation
-Running a function or calling a function.
+**Single Thread**: One command at a time.
+**Synchronous Execution**: One at a time.
+**Function Invocation**: Running a function or calling a function.
 
 In a following code, `function b()` is invoked inside of `function a()`
 
 
-#### The Execution Stack
-Execution stack means a sequence of created execution. For the following code example.
+**The Execution Stack**: Execution stack means a sequence of created execution. For the following code example.
 
 1. Global execution context is created. 
 2. `function a()` and `function b()` are stored in memory space. 
@@ -98,8 +94,7 @@ a();
 var e;
 ```
 
-#### Variable envirnoments 
-where the variables live. (how they related to each other in memory)
+**Variable envirnoments**: where the variables live. (how they related to each other in memory)
 
 Each variable (myVar) where we are looking at on a following code is defined within its own execution context.
 
@@ -116,11 +111,9 @@ function a() {
 var myVar = 1; // within global execution context.
 a();
 ```
-#### Scope 
-Where are we able to see varialbes. 
+**Scope**: Where are we able to see varialbes. 
 
-#### The Scope Chain
-Look down of the execution stack to find the variable.
+**The Scope Chain**: Look down of the execution stack to find the variable.
 
 In a following code, we can see there is no `myVar` declaration inside of `function b()`, so a JavaScript engines starts to look at memory space called `myVar` in its outer envirnoment (global execution context).
 
@@ -136,12 +129,11 @@ var myVar = 1;
 a();
 ```
 
-#### let: 
-Block scoping.
+**let**:Block scoping.
 
 ### What about Asynchronous callbacks? 
 
-#### Asynchronous
+**Asynchronous**: 
 More than one at a time. 
 
 Browser handles events or http requests asynchronously, but javascript is still synchronously. When the execution stack is empty. Browser look at the event queue to see which event needs to be run.
@@ -168,9 +160,9 @@ console.log('finished execution');
 
 ## Section 3 - Types and Operators
 
-#### Types and JavaScript
+**Types and JavaScript**:
 
-Dynamic typing: you don't tell the engin what type of data a variable holds, it figures it out while your code is running. 
+**Dynamic typing**: you don't tell the engin what type of data a variable holds, it figures it out while your code is running. 
 
 ```Javascript
 // Static typing
@@ -182,9 +174,7 @@ isNew = 'yup!';
 isNew = 1;
 ```
 
-#### Primitive types
-
-A type of data that represents a single value, and there are six type of primitive.
+**Primitive types**: A type of data that represents a single value, and there are six type of primitive.
 
 1. Undefined: it represents lack of existence. 
 2. Null: it also represents lack of existence. 
@@ -193,15 +183,11 @@ A type of data that represents a single value, and there are six type of primiti
 5. String: a sequence of characters.
 6. Symbol: Used in ES6. 
 
-#### Operators
+**Operators**: A special function that is syntactically (written) differently. Generally, operators take two parameters and return one result.
 
-A special function that is syntactically (written) differently. Generally, operators take two parameters and return one result.
+**Operator Precedence**: Which operator function gets called first. Functions are called in order of precedence.
 
-#### Operator Precedence
-Which operator function gets called first. Functions are called in order of precedence.
-
-#### Associativity
-What order operator functions get called in: left-to-right or right-to-left.
+**Associativity**: What order operator functions get called in: left-to-right or right-to-left.
 
 In a following code, you can search online about the [operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) order. As you can see, `Multiplication (*)` is 14, `Addition (+)` is 13 and `Equal (=)` is 3. So multiplication will be called before addition, and equal gets called last. 
 
@@ -210,15 +196,14 @@ var a = 3 + 4 * 5;
 console.log(a);
 ```
 
-#### Coercion
-Converting a value from one type to another.
+**Coercion**: Converting a value from one type to another.
 
 JavaScript engine will coerce 1 to '1' by itself.
 ```javascript
 var a = 1 + '2'
 ```
 
-#### Comparison Operators
+**Comparison Operators**:
 
 In `console.log(3 < 2 < 1)`. The engine run `3 < 2` first based on the precedence
  order and it returns `false`. It will be `false < 1`. When the engine corces false to number, it reutrns to `0`. Therefore, `0 < 1` is true.
@@ -248,7 +233,7 @@ console.log("" === 0) // return false
 console.log("" === false) // return false
 ```
 
-#### Existence and Booleans
+**Existence and Booleans**: 
 
 As you can see a following example, JavaScript engine treats `""`, `undefined`, and `null` as false when they coerce to `Boolean`. Which means, we can use this as adventage to check if variable is valid. However, `0` value can also be treated as false. In order to prevent this happening, we need to add `a === 0` in the statement.
 
@@ -264,7 +249,7 @@ if (a || a === 0) {
 }
 ```
 
-#### Default values
+**Default values**:
 
 We can use or operator another behavior to set a default value. Usually, the engine returns true or false while using or `||` operator. However, in a following case, engine returns first value which can be coerced as true. For example, `name || 'ABC'` will return name if name can be coerced as true, otherwise it returns 'ABC'.
 
@@ -278,7 +263,7 @@ greet();
 
 ### Framework Aside
 
-#### Default values
+**Default values**
 
 If an index.html references three scripts. And both library1.js and library2.js have a declared variable called `libraryName`. If we want to use `libraryName` inside of app.js, what value will we get? 
 
@@ -328,7 +313,7 @@ console.log(libraryName);
 
 ## Section 4 - Objects and Functions
 
-#### Objects and the Dot
+**Objects and the Dot**
 
 1. Primitive "property".
 2. Object "property".
@@ -355,7 +340,7 @@ person.address.city = "Rockville";
 console.log(person["address"]["city"]);
 ```
 
-#### Objects and object literals
+**Objects and object literals**:
 
 A following initialization of object is an object literal syntax.
 
@@ -382,7 +367,7 @@ greet({firstName: 'a', lastName: 'b'});
 
 ### Framework Aside
 
-#### Faking namespace
+**Faking namespace**:
 A container for variables and functions. Typically to keep variables and functions with the same name separate.
 
 ``` JavaScript
@@ -398,7 +383,7 @@ spanish.greet = 'Hola!';
 ```
 
 #### Functions are objects
-#### First class functions
+**First class functions**:
 Everything you can do with other types you can do with functions. Assign them to variables, pass them around, create them on the fly.
 
 Function 
@@ -419,7 +404,7 @@ greet.language = 'English';
 ```
 
 #### Function statements and function expressions
-#### Expreession 
+**Expreession**
 A unit of code that results in a value. It doesn't have to save variables.
 
 ``` JavaScript
@@ -439,13 +424,13 @@ function greet() {
 ```
 
 
-### Conceptual Aside
-
-#### Mutate 
+**Mutate**:
 To change something.  
-#### Immutate 
+
+**Immutate**
 Can't be changed.
-#### By value and by reference
+
+**By value and by reference**
 
 In a following code, 3 (a primitive value) sits in a memory `a`, and `b` copy `a`'s value and with its copied primitive value. Copying the value into two seperate spots in memory.
 ```JavaScript
@@ -499,7 +484,7 @@ console.log(d);
 
 ```
 
-#### Objects, functions and 'this'
+**Objects, functions and 'this'**
 
 'this' will point to different object, function and things depends on how the function is invoked.
 
@@ -539,8 +524,9 @@ var c = {
 c.log();
 ```
 
-#### Arrays
-#### arguments 
+## Arrays
+
+**Arguments**: 
 The parameters you pass to a function
 
 ```javascript
@@ -574,10 +560,7 @@ function greet (firstName, ...other) {
 }
  ```
 
-### Framework Aside
-
-#### function overloading
-Function which has the same name, but with different parameters. 
+**function overloading**: Function which has the same name, but with different parameters. 
 
 Javascript doesn't have function overloading because functions are objects. So `function overloading` is not availabe in the way that JavaScript deal with functions. 
 
@@ -608,7 +591,7 @@ greetSpanish('John', 'Doe');
 ```
 
 ### Dangerous Aside
-#### Automatic semicolon insertion 
+**Automatic semicolon insertion** 
 
 In a following code, the engine automatically put a semicolon after return, so it return 'undefined'.
 
@@ -630,9 +613,7 @@ function getPerson () {
 console.log(getPerson());
 ```
 
-### Framework Aside
-#### Whitespace
-Invisible characters that create literal 'space' in your written code.
+**Whitespace**: Invisible characters that create literal 'space' in your written code.
 
 ```Javascript
 var 
@@ -656,7 +637,7 @@ var person = {
 console.log(person);
 ```
 
-#### Immediately invoked function expressions (IIFE)S (important)
+**Immediately invoked function expressions (IIFE)S** (important)
 
 
 ```Javascript
@@ -692,9 +673,7 @@ console.log(greeting1)
 
 ```
 
-### Framework Aside
-
-#### IIFES and save code. (important)
+**IIFES and save code** (important)
 
 Execution stack: the engine creats a memory for anonymous function in global execution context. An new execution context is created when engine reads `('YS')`. The variable is declared inside of the anonymous function is with its own execution context, not touching global execution context. 
 
@@ -720,7 +699,7 @@ If I want to pass or declare global variables or functions into IIFES? What shou
 }(window, 'YS'));
 ```
 
-#### Understanding closures (important)
+**Understanding closures** (important)
 
 ```js
 function greet(whattosay) {
@@ -761,8 +740,7 @@ fs[1]();
 fs[2]();
 ```
 
-### Framework Aside
-#### function factories (important)
+**function factories** (important)
 
 A following code is the way to use function factories by using closures capability. 
 
@@ -790,7 +768,7 @@ greetSpanish('John', 'Doe');
 
 ```
 
-#### closures and callbacks (important) 
+**closures and callbacks** (important) 
 
 ```js
 function sayHiLater() {
@@ -810,7 +788,7 @@ $('button').click(function() {
 });
 ```
 
-#### callback functions (important)
+**callback functions** (important):
 A function you give to another function, to be run when the other function is finished.
 
 ```js
@@ -829,7 +807,7 @@ tellMeWhenDone (function() {
 })
 ```
 
-#### call(), apply() and bind() (important)
+**call(), apply() and bind()** (important)
 
 All functions have call, apply and bind methods. All three of these have to do with the `'this'` variable and the arguments that you pass to the function as well.
 
@@ -899,11 +877,11 @@ var multipleByTheee = multiply.bind(this, 3);
 console.log(multipleByTheee(4)); // 12
 ```
 
-#### function currying (important)
+**function currying**: (important)
 Creating a copy of a function but with some preset parameters
 
 
-#### functional programming (important)
+**functional programming** (important)
 
 ```js
 function mapForEach(arr, fn) {
@@ -956,7 +934,7 @@ console.log(arr6);
 
 ```
 
-#### functional programming 2
+**functional programming 2**:
 using [underscore.js](http://underscorejs.org/docs/underscore.html)
 
 ```js
@@ -983,9 +961,7 @@ console.log(arr8)
 - extensible
 - easy to understand
 
-#### Understanding the prototype
-
-Object looks for its own properties first before looking for in prototype.
+**Understanding the prototype**: Object looks for its own properties first before looking for in prototype.
 
 ```js
 ver person = {
@@ -1013,7 +989,8 @@ var jane = {
 jane.__proto__ = person;
 ```
 
-#### Reflection and extend
+**Reflection and extend**
+
 `Reflection`: An object can look at itself, listing and changing its properties and methods.
 
 ```js
@@ -1043,7 +1020,7 @@ console.log(john);
 
 ## Section 6: Building Objects
 
-#### Function constructors, 'new', and the history of javascript.
+**Function constructors, 'new', and the history of javascript.**
 
 `Function Constructor`: A normal function that is used to construct objects. (The 'this' variable points a new empty object, and that object is returned from the function automatically)
 
@@ -1060,7 +1037,7 @@ var john = new Person('John', 'Doe');
 console.log(john);
 ```
 
-#### Function constructors and '.Prototype'
+**Function constructors and '.Prototype'**
 
 ```js
 function Person(firstname, lastname) {
@@ -1089,7 +1066,7 @@ Person.prototype.getFormalFullName = function() {
 
 
 ### Dangerous Aside
-#### 'new' and functions
+**'new' and functions**
 
 Forgot to put 'new' before Person.
 
@@ -1115,7 +1092,7 @@ Person.prototype.getFormalFullName = function() {
 }
 ```
 
-#### Built-in function constructors 
+**Built-in function constructors **
 
 We can add customized function into javascript built-in object function. 
 
@@ -1161,7 +1138,7 @@ for (var i = 0; i < arr.length; i++) {
 }
 ```
 
-#### Object.create and Pure Prototypal Inheritance
+**Object.create and Pure Prototypal Inheritance**
 
 Pure Prototypal Inheritance: `Object.create()` creates an empty object with its prototype.
 
@@ -1197,7 +1174,7 @@ if (!Object.create) {
 }
 ```
 
-#### ES6 and classes
+**ES6 and classes**
 This is another way to approach creating object.
 
 `extends`: sets the Prototype (__proto__)
@@ -1227,13 +1204,13 @@ class InformalPerson extends Person {
 
 
 ```
-#### Syntactic sugar
+**Syntactic sugar**
 A different way to type something that doesn't change how it works under the hood.
 
 
 ## Section 7: Initialization
 
-#### ODDS and ENDS
+**ODDS and ENDS**
 
 ```js
 var people = [
@@ -1261,13 +1238,13 @@ var people = [
 ];
 ```
 
-#### typeof, instanceof, and figuaring out what something is.
+**typeof, instanceof, and figuaring out what something is.**
 
 `typeof`: is an operator that accepts a parameter, but it's essentially a function returning a string.
 
 `instanceof`: if you are dealing with an object chains, will tell you something has in its prototype chain.
 
-#### strict mode
+**strict mode**
 
 If we don't use `use strict`, this will pass. If we use `use strict`, it throws an exception.
 
